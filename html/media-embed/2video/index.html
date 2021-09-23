@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    
+    <body>
+        <video src="example.mkv" controls autoplay loop>
+            <p>你的浏览器不支持该文件</p>
+        </video>
+
+        <!-- 设置自动播放，上面不行，下面这样才有效 -->
+        <video controls autoplay loop muted poster="rose.jpg">
+            <source src="example.mkv">
+            <!-- 字母没显示，麻了 -->
+            <track kind="subtitles" src="test.vtt" srclang="en">
+            <p>你的浏览器不支持该文件</p>
+        </video>
+
+        <video controls loop muted poster="rose.jpg">
+            <source src="example.mkv">
+            <p>你的浏览器不支持该文件</p>
+        </video>
+
+        <!-- 下面这个播放不了，是因为type造成的 -->
+        <video controls autoplay loop muted poster="rose.jpg">
+            <source src="example.mkv" type="video/mkv">
+            <p>你的浏览器不支持该文件</p>
+        </video>
+
+        <!-- 只会播放音频，没画面 -->
+        <audio controls>
+            <source src="example.mkv">
+        </audio>
+
+        <audio controls>
+            <source src="张悬 - 关于我爱你.mp3">
+        </audio>
+    </body>
+</html>
