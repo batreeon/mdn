@@ -1,0 +1,32 @@
+h1 {
+    color: red;
+}
+
+/* 取出列表项前面的符号 */
+li {
+    list-style-type: none;
+}
+
+.special {
+    color: salmon;
+}
+
+li em {
+    color: turquoise;
+}
+
+h1 + p {
+    font-size: 150%;
+}
+
+a:link {
+    color: turquoise;
+}
+
+a:visited {
+    color:violet;
+}
+
+a:hover {
+    text-decoration: none;
+}
