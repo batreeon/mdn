@@ -16,3 +16,14 @@
     background-color: rebeccapurple;
     transform: rotate(0.8turn);
 }
+
+body {
+    background-color: pink;
+}
+
+/* 视口大小大于50em的浏览器 */
+@media (min-width: 50em) {
+    body {
+        background-color: blue;
+    }
+}
