@@ -1,0 +1,52 @@
+#outer a {
+    background-color: red;
+}
+
+/* 下面这个优先级更高 */
+#outer #inner a {
+    background-color: blue;
+}
+
+#outer div ul li a {
+    color: yellow;
+}
+
+/* 类大于元素 */
+#outer div ul .nav a {
+    color: white;
+}
+
+/* specificity: 0024 */
+div div li:nth-child(2) a:hover {
+    border: 10px solid black;
+}
+
+/* specificity: 0023 */
+div li:nth-child(2) a:hover {
+    border: 10px dashed black;
+}
+
+/* 当鼠标悬停，第二个li的样式 */
+/* specificity: 0033 */
+div div .nav:nth-child(2) a:hover {
+    border: 10px double black;
+}
+
+a {
+    display: inline-block;
+    line-height: 40px;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}            
+    

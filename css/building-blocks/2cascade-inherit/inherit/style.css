@@ -1,0 +1,15 @@
+body {
+    color: green;
+}
+
+.class-1 a {
+    color: inherit;
+}
+
+.class-2 a {
+    color: initial;
+}
+
+.class-3 a {
+    color: unset;
+}

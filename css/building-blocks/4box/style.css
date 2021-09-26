@@ -1,0 +1,21 @@
+p, 
+ul {
+  border: 2px solid rebeccapurple;
+}
+
+span,
+li {
+  border: 2px solid blue;
+}
+
+/* block/inline：ul是否会占一整行
+   felx：所有li是否会在同一行 */
+ul {
+  display: inline;
+  list-style: none;
+  padding: 0;
+} 
+
+.inline {
+  display: inline;
+}
