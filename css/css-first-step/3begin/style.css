@@ -2,7 +2,7 @@ h1 {
     color: red;
 }
 
-/* 取出列表项前面的符号 */
+/* 去除列表项前面的符号 */
 li {
     list-style-type: none;
 }
