@@ -1,0 +1,15 @@
+#p1 {
+    writing-mode: horizontal-tb;
+}
+
+#p2 {
+    writing-mode: vertical-lr;
+}
+
+#p3 {
+    writing-mode: vertical-rl;
+}
+
+div {
+    writing-mode: vertical-lr;
+}
