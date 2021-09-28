@@ -21,7 +21,7 @@ for (let i = 1; i <= 5; i++) {
 
 /* 编写 变暗/变量 按钮功能 */
 function dark() {
-    if (btn.getAttribute('class') == 'dark') {
+    if (btn.getAttribute('class') === 'dark') {
         btn.setAttribute('class','light');
         btn.textContent = '变亮';
         overlay.style.backgroundColor = 'rgba(0,0,0,0.5)';
