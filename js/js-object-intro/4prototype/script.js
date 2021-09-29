@@ -19,3 +19,10 @@ dosomething.prototype.greeting = function() {
 }
 
 dstInstance.greeting();
+let dstInstance1 = new dosomething();
+dstInstance1.greeting();
+
+// 这个是不行的，你看上面greeting定义时，prototype是原始构造函数才具有的属性
+dstInstance.prototype.hello = function() {
+    console.log('hello!');
+}
