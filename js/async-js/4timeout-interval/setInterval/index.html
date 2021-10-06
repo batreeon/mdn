@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Simple setInterval clock</title>
+    <style>
+      p {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="clock"></p>
+    <div>
+        <button class="start">start</button>
+        <button class="stop">stop</button>
+        <button class="reset">reset</button>
+    </div>
+    <script>
+    //   function displayTime() {
+    //     let date = new Date();
+    //     let time = date.toLocaleTimeString();
+    //     document.querySelector('.clock').textContent = time;
+    //   }
+
+    // 为什么setInterval前面还要单独调用一次displayTime呢，
+    // 如果不单独调用刚进入页面是不会显示时间的，经过一秒setInterval才会起作用
+    //   displayTime();
+    //   const createClock = setInterval(displayTime, 1000);
+
+        let seconds = 0;
+
+        let para = document.querySelector('.clock');
+        para.textContent = 0 + ' s';
+
+        let btnStart = document.querySelector('.start');
+        let btnStop = document.querySelector('.stop');
+        let btnReset = document.querySelector('.reset');
+        
+        // 这个是一直运行的，每一秒都显示一下seconds值
+        function displaySecons() {
+            para.textContent = seconds + ' s';;
+        }
+        let stopWatch = setInterval(displaySecons, 1000);
+
+        // 点击按钮改变对seconds的修改动作
+        let changeSeconds;
+        function fStart() {
+            para.textContent = seconds + ' s';
+            changeSeconds = setInterval(function(){seconds++;}, 1000);
+        }
+        function fStop() {
+            clearInterval(changeSeconds);
+        }
+        function fReset() {
+            seconds = 0;
+            para.textContent = seconds + ' s';
+            clearInterval(changeSeconds);
+        }
+
+        btnStart.addEventListener('click', fStart);
+        btnStop.addEventListener('click', fStop);
+        btnReset.addEventListener('click', fReset);
+
+    </script>
+  </body>
+</html>
