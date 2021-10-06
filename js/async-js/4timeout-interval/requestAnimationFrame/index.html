@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- <p>This is my page</p> -->
+    <div>↻</div>
+    <script>
+        const spinner = document.querySelector('div');
+        let rotateCount = 0;
+        let rAF;
+        let startTime = null;
+
+        function draw(timestamp) {
+            if (!startTime) {
+                startTime = timestamp;
+            }
+
+            rotateCount = (timestamp - startTime) / 3;
+
+            if (rotateCount > 359) {
+                rotateCount %= 360;
+            }
+
+            spinner.style.transform = 'rotate(' + rotateCount + 'deg)';
+            rAF = requestAnimationFrame(draw);
+        }
+        draw();
+
+        // 点击暂停或重启
+        let isRotate = true;
+        document.body.addEventListener('click', () => {
+            if (isRotate) {
+                cancelAnimationFrame(rAF);
+            }else{
+                draw();
+            }
+            isRotate = !isRotate;
+        })
+    </script>
+  </body>
+</html>
