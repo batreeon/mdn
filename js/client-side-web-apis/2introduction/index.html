@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <div id="map_canvas"></div>
+
+        <!-- 没反应啊？？？ -->
+        <!-- <script type="text/javascript" src="https://maps.google.com/maps/API/js?key=AIzaSyDDuGt0E5IEGkcE6ZfrKfUtE9Ko_de66pA"></script> -->
+        <script>
+            navigator.geolocation.getCurrentPosition(function(position) {
+                let latlng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+                let myOptions = {
+                    zoom: 8,
+                    center: latlng,
+                    mapTypeId: google.maps.MapTypeId.TERRAIN,
+                    disableDefaultUI: true
+                }
+                let map = new google.maps.Map(document.querySelector("#map_canvas"), myOptions);
+            });
+        </script>
+    </body>
+</html>
