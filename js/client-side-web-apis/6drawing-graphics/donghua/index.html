@@ -29,12 +29,45 @@
 
         let image = new Image();
         image.src = 'walk-right.png';
+        // 图片载入后出发draw函数
         image.onload = draw;
 
         let sprite = 0;
         let posX = 0;
 
-        
+        function draw() {
+          // 清除画布，因为画布原点不在左上角了，因此注意fillRect的参数
+          ctx.fillRect(-(width/2), -(height/2), width, height);
+          // 原图有六个卡通人物，每次截取其中一个
+          // 页面加载后的第一幕，人物是在中间，因为原点在中间，初始posX为0
+          ctx.drawImage(image, (sprite*102), 0, 102, 148, 0+posX, -74, 102, 148);
+
+          // 每帧绘制完毕后修改sprite的值
+          // 每隔13帧才更新一次精灵，每秒大约5帧（requestAnimationFrame() 每秒最多调用 60 帧）
+          if (posX % 13 === 0) {
+            // 原图里有6个精灵，因此sprite达到5时就重置为0
+            if (sprite === 5) {
+              sprite = 0;
+            } else {
+              sprite++;
+            }
+          }
+
+          // 计算出每帧posX的值
+          // posX > width/2，那么人物到了右边界了，马上要出去了
+          if(posX > width/2) {
+            // 人物从右边界出去了，接下来应从左边继续开始
+            // 为什么不是-width/2，而是-((width/2) + 102)，为了有半个进入画面的这种情况，如果是后者那么人物在最左侧没有只出现一半的情况
+            newStartPos = -((width/2) + 102);
+            // 为了确保posX是13的倍数，要不然上面一段if else无法运行
+            posX = Math.ceil(newStartPos / 13) * 13;
+            console.log(posX);
+          } else {
+            posX += 2;
+          }
+
+          window.requestAnimationFrame(draw);
+        }
     </script>
   </body>
 </html>
